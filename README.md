@@ -347,7 +347,7 @@ Response: `204 No Content`
 
 ---
 
-## ■ Seeder Command
+## Seeder Command
 
 ```bash
 php artisan app:seed-translations {count}
@@ -361,10 +361,17 @@ php artisan app:seed-translations 100000
 
 ---
 
-## ■ Testing
+## Testing
 
 ```bash
 ./vendor/bin/sail test
 ```
 
 ---
+
+## Notes
+
+This project follows a Service Pattern architecture to ensure modularity, maintainability, and scalability.
+Each business logic component will be encapsulated within dedicated service classes, allowing the system to grow and adapt without tightly coupling features.
+
+The database is structured to support high scalability, efficient queries, and future expansion.
