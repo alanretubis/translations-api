@@ -1,9 +1,9 @@
-# ■ Translation API
+# Translations API
 
 A Laravel-based Translation Management API designed to handle multilingual content with support for tagging, searching, and exporting translations for frontend applications.
 Built with Laravel Sail for a Dockerized local environment and Laravel Sanctum for secure API authentication using tokens.
 
-## ■ Features
+## Features
 
 -   Manage translations for multiple locales (en, fr, es, jp)
 -   Tag translations for context (web, mobile, marketing)
@@ -14,7 +14,7 @@ Built with Laravel Sail for a Dockerized local environment and Laravel Sanctum f
 
 ---
 
-## ■ Installation (Laravel Sail)
+## Installation (Laravel Sail)
 
 ```bash
 # 1. Clone the repository
@@ -40,7 +40,7 @@ php artisan key:generate
 
 ---
 
-## ■ Authentication (Sanctum)
+## Authentication (Sanctum)
 
 Generate user and API token:
 
@@ -60,7 +60,7 @@ Content-type : application/json
 
 ---
 
-## ■ API Endpoints
+## API Endpoints
 
 | Method | Endpoint                 | Description                                         |
 | :----- | :----------------------- | :-------------------------------------------------- |
@@ -75,7 +75,7 @@ Content-type : application/json
 
 ---
 
-## ■ Example Requests (Thunder Client / Postman / Frontend)
+## Example Requests (Thunder Client / Postman / Frontend)
 
 ### User Registration
 
