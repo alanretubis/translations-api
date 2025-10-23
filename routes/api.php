@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\LocaleController;
+use App\Http\Controllers\Api\TagController;
 use App\Http\Controllers\Api\TranslationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,5 +20,9 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/translations/export', [TranslationController::class, 'exportJson']);
+    Route::get('translations/search', [TranslationController::class, 'search']);
     Route::apiResource('translations', TranslationController::class);
+
+    Route::get('tags', [TagController::class, 'index']);
+    Route::get('locales', [LocaleController::class, 'index']);
 });

@@ -16,9 +16,27 @@ class LocaleFactory extends Factory
      */
     public function definition(): array
     {
+        $locales = [
+            'en' => 'English',
+            'fr' => 'French',
+            'es' => 'Spanish',
+            'de' => 'German',
+            'it' => 'Italian',
+            'zh' => 'Chinese',
+            'ja' => 'Japanese',
+            'ko' => 'Korean',
+            'pt' => 'Portuguese',
+            'ru' => 'Russian',
+            'ar' => 'Arabic',
+            'hi' => 'Hindi',
+            'tl' => 'Tagalog',
+        ];
+
+        $code = $this->faker->unique()->randomElement(array_keys($locales));
+
         return [
-            'code' => $this->faker->unique()->randomElement(['en', 'fr', 'es', 'de', 'it']),
-            'name' => ucfirst($this->faker->word()),
+            'code' => $code,
+            'name' => $locales[$code],
         ];
     }
 }

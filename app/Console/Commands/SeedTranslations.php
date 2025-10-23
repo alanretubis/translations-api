@@ -31,9 +31,24 @@ class SeedTranslations extends Command
     {
         $count = (int) $this->argument('count');
 
-        $locales = ['en', 'fr', 'es', 'de', 'zh'];
-        foreach ($locales as $code) {
-            Locale::firstOrCreate(['code' => $code], ['name' => strtoupper($code)]);
+        $locales = [
+            'en' => 'English',
+            'fr' => 'French',
+            'es' => 'Spanish',
+            'de' => 'German',
+            'it' => 'Italian',
+            'zh' => 'Chinese',
+            'ja' => 'Japanese',
+            'ko' => 'Korean',
+            'pt' => 'Portuguese',
+            'ru' => 'Russian',
+            'ar' => 'Arabic',
+            'hi' => 'Hindi',
+            'tl' => 'Tagalog',
+        ];
+
+        foreach ($locales as $code => $name) {
+            Locale::firstOrCreate(['code' => $code], ['name' => strtoupper($name)]);
         }
 
         $tagNames = ['mobile', 'desktop', 'web'];
@@ -52,7 +67,7 @@ class SeedTranslations extends Command
             $toCreate = min($batchSize, $count - $created);
 
             foreach (range(1, $toCreate) as $i) {
-                $localeCode = $locales[array_rand($locales)];
+                $localeCode = array_rand($localesByCode);
                 $localeId = $localesByCode[$localeCode];
 
                 $translation = Translation::create([

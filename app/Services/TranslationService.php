@@ -32,6 +32,10 @@ class TranslationService
             );
         }
 
+        if (!empty($filters['content'])) {
+            $query->where('value', 'like', '%' . $filters['content'] . '%');
+        }
+
         return $query->paginate(50);
     }
 
@@ -108,9 +112,9 @@ class TranslationService
         // Transform items in the paginator
         $translations->getCollection()->transform(function ($t) {
             return [
-                'locale' => $t->locale->code ?? 'unknown',
                 'key' => $t->key,
                 'value' => $t->value,
+                'locale' => $t->locale->code ?? 'unknown',
                 'tags' => $t->tags->pluck('name')->toArray(),
             ];
         });

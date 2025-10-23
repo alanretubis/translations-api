@@ -67,6 +67,14 @@ class TranslationController extends Controller
         return response()->json(['message' => 'Deleted'], 204);
     }
 
+    public function search(Request $request)
+    {
+        $filters = $request->only(['key', 'locale', 'tag']);
+        $results = $this->translationService->search($filters);
+
+        return response()->json($results);
+    }
+
     public function exportJson(Request $request)
     {
         $perPage = $request->query('per_page', 1000);
